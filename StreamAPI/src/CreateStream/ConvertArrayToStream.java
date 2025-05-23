@@ -11,5 +11,9 @@ public class ConvertArrayToStream {
 		Stream<String> s = Arrays.stream(countries);
 		
 		s.forEach(System.out::println);
+		
+		Stream<String> s2 = Stream.of("Bhau","Sangita","chandu","Gauri","Vrinda","Pooja","Anuj");
+		s2.forEach(System.out::println);
+
 	}
 }
