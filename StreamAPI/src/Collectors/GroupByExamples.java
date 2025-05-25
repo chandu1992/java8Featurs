@@ -23,6 +23,11 @@ public class GroupByExamples {
 		Map<String, List<Student>> data = students.stream().collect(Collectors.groupingBy(Student::getName));
 		System.out.println(data);
 		
+		Map<String,Long> data2 = students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.counting()));
+		System.out.println(data2);
+		
+		
+		
 
 
 
