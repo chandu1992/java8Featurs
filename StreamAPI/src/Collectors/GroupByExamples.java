@@ -84,7 +84,9 @@ public class GroupByExamples {
 		Stream<Integer> numbers = Stream.of(1,2,3,4,5,6,7,8,9,10);
 		
 		Map<Boolean, List<Integer>> da = numbers.collect(Collectors.partitioningBy(num -> num%2 ==0));
-		System.out.println(da); //{false=[1, 3, 5, 7, 9], true=[2, 4, 6, 8, 10]}
+		System.out.println(da); //{false=[1, 3, 5, 7, 9], true=[2, 4, 6 , 8, 10]}
+		
+		
 
 	}
 
