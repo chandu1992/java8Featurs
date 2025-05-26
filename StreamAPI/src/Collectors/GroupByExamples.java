@@ -1,9 +1,12 @@
 package Collectors;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GroupByExamples {
 	
@@ -45,7 +48,43 @@ public class GroupByExamples {
 		
 
 		System.out.println(students.stream().collect(Collectors.counting())); // 7
+		
+		System.out.println(students.stream().collect(Collectors.mapping(Student::getName, Collectors.toList())));
+		
+		Optional<Student> oldstd= students.stream().collect(Collectors.maxBy(Comparator.comparing(Student::getAge)));
+		System.out.println(oldstd.get().getName() + "--->"+oldstd.get().getAge()); 
+		// Chandra--->33
+		
 
+		Double aveAge = students.stream().collect(Collectors.averagingLong(Student::getAge));
+		System.out.println(aveAge); // 24.714285714285715
+		
+		Map<String, List<Student>> byAgeRange = students.stream()
+			    .collect(Collectors.groupingBy(p -> {
+			        if (p.getAge() < 30) return "Young";
+			        else if (p.getAge() <= 35) return "Middle-aged";
+			        else return "Old";
+			    }));
+		
+		System.out.println(byAgeRange);
+
+		
+		Map<Character, List<Student>> byInitial = students.stream()
+			    .collect(Collectors.groupingBy(p -> p.getName().charAt(0)));
+		
+		System.out.println(byInitial);
+		
+		Stream<String> fruits = Stream.of("Mango","Banana","Graps","Mandgo");
+		Map<String,Integer> s =fruits.collect(Collectors.toMap(frt ->  frt, frtt -> frtt.length()));
+		
+		System.out.println(s); // {Graps=5, Mango=5, Mandgo=6, Banana=6}
+		
+		
+
+//		Stream<Integer> numbers = Stream.of(1,2,3,4,5,6,7,8,9,10);
+//		
+//		Map<Boolean, List<Integer>> da = numbers.collect(Collectors.partitioningBy(num -> num%2 ==0));
+//		System.out.println(da); //{false=[1, 3, 5, 7, 9], true=[2, 4, 6, 8, 10]}
 
 	}
 
