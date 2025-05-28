@@ -22,21 +22,21 @@ public class GetSalaryGraterThanFiveLPA {
 		employees.add(new Employee(103,"Atul",100000.4));
 		
 		//salary is grater than 200000
-		List<Double> employeeSalaryList = employees.stream().filter((employee)-> employee.getSalary() > 200000).map((employee)->employee.getSalary()).collect(Collectors.toList());
+		List<Double> employeeSalaryList = employees.stream().filter((employee)-> employee.getSalary() > 200000).map(Employee::getSalary).collect(Collectors.toList());
 
 		System.out.println(employeeSalaryList);
 		
 		employees.stream().filter(employee -> employee.getSalary()== 4200000.4).forEach(employee -> System.out.println("employee "+employee.getName()+" has salary : "+employee.getSalary()));
 		
 		double totalSalary = employees.stream().collect(Collectors.summingDouble(employee ->employee.getSalary()));
-		System.out.println("Sum of salary : "+totalSalary);
+		System.out.println("Sum of salary : "+totalSalary); // 6020002.52
 		
 		
 		Employee employee = employees.stream().max((employee1,employee2) -> employee1.getSalary() > employee2.getSalary() ? 1 : -1).get();
-		System.out.println(employee.getName()+ " employee has max salary "+employee.getSalary());
+		System.out.println(employee.getName()+ " has max salary "+employee.getSalary());
 		
 		Employee employeemin = employees.stream().max((employee1,employee2) -> employee1.getSalary() > employee2.getSalary() ? -1 : 1).get();
-		System.out.println(employeemin.getName()+ " employee has min salary "+employeemin.getSalary());
+		System.out.println(employeemin.getName()+ " has min salary "+employeemin.getSalary());
 		
 		Set<Double> empSet = employees.stream().filter((employeeData)-> employeeData.getSalary() > 200000.4).map((employeeData)->employeeData.getSalary()).collect(Collectors.toSet());
 		System.out.println(empSet);
