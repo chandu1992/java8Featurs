@@ -16,7 +16,7 @@ public class GetSalaryGraterThanFiveLPA {
 		
 		employees.add(new Employee(101,"Chandra",520000.4));
 		employees.add(new Employee(102,"Akash",600000.44));
-		employees.add(new Employee(103,"Karishma",400000.43));
+		employees.add(new Employee(103,"Gauri",400000.43));
 		employees.add(new Employee(103,"Arjun",4200000.45));
 		employees.add(new Employee(103,"Sumit",200000.4));
 		employees.add(new Employee(103,"Atul",100000.4));
