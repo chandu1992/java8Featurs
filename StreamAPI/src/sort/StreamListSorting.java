@@ -16,20 +16,20 @@ public class StreamListSorting {
 		fruits.add("Orange");
 		fruits.add("kivi");
 		
+		List<String> sortFruit2 = fruits.stream().sorted().collect(Collectors.toList());
+		System.out.println(sortFruit2);
+		
 //		Ascending order
 		
 		List<String> sortList = fruits.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
 		System.out.println(sortList);
 		
-		List<String> sortFruit1 = sortList.stream().sorted((o1,o2) -> o1.compareTo(o2)).collect(Collectors.toList());
-		System.out.println(sortFruit1);
-		
-		List<String> sortFruit2 = sortList.stream().sorted().collect(Collectors.toList());
-		System.out.println(sortFruit2);
-		
 //		Descending order
 		List<String> sortRevList = fruits.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 		System.out.println(sortRevList);
+		
+		List<String> sortFruit1 = sortList.stream().sorted((o1,o2) -> o1.compareTo(o2)).collect(Collectors.toList());
+		System.out.println(sortFruit1);
 		
 		List<String> sortRevFruit1 = sortList.stream().sorted((o1,o2) -> o2.compareTo(o1)).collect(Collectors.toList());
 		System.out.println(sortRevFruit1);

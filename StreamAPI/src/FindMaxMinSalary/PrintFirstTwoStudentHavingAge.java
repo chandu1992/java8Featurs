@@ -15,11 +15,13 @@ public class PrintFirstTwoStudentHavingAge {
 		employees.add(new Employee(103,"Sumit",200000.4));
 		employees.add(new Employee(103,"Atul",100000.4));
 		
+		// print first two emp having salary more than 400000
+		
 		employees.stream()
 		.filter(emp -> emp.getSalary()>400000)
 		.map(emp -> emp.getName())
 		.limit(2)
-		.forEach(emp -> System.out.println(emp));
+		.forEach(emp -> System.out.println(emp)); // Chandra Akash
 	}
 
 }
